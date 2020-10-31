@@ -1,4 +1,7 @@
 package customer_service;
+
+import java.util.*;
+
 import car.Car;
 import showroom_service.Showroom;
 
@@ -6,9 +9,12 @@ public class Customer {
 	public static void main(String[] args) {
 		Car car = new Car();
 		Showroom showObj = new Showroom();
-		System.out.println(showObj.getcarType());
+		HashMap<String, ArrayList<String>> carSpec = showObj.getcarType();
 
-		boolean flag = showObj.getorder("SUV");
+		carSpec.forEach((key, value) -> System.out.println(key + " = " + value));
+		System.out.println();
+
+		boolean flag = showObj.getorder("XUV", "Blue", 4);
 		if (flag == true) {
 			car = showObj.getShipment();
 		}
