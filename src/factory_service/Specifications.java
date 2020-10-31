@@ -17,4 +17,5 @@ public class Specifications {
 		return Specs;
 
 	}
+
 }
