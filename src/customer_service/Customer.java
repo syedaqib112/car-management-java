@@ -14,10 +14,13 @@ public class Customer {
 		carSpec.forEach((key, value) -> System.out.println(key + " = " + value));
 		System.out.println();
 
-		boolean flag = showObj.getorder("XUV", "Blue", 4);
+		boolean flag = showObj.getorder("XUV", "Black", "5");
 		if (flag == true) {
 			car = showObj.getShipment();
+			System.out.println(car);
+		} else {
+			System.out.println("Specifications not avaliable");
 		}
-		System.out.println(car);
+
 	}
 }

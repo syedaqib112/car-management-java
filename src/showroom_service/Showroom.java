@@ -3,33 +3,39 @@ package showroom_service;
 import java.util.*;
 
 import car.Car;
-import factory_service.Factory;
+import factory_service.*;
 
 public class Showroom {
 	Car car = new Car();
+	Specifications specCheck = new Specifications();
+	HashMap<String, ArrayList<String>> carSpec = new HashMap<>();
 
 	public HashMap<String, ArrayList<String>> getcarType() {
-		HashMap<String, ArrayList<String>> Specs = new LinkedHashMap<>();
-
-		ArrayList<String> carType = new ArrayList<String>(Arrays.asList("SUV", "XUV", "Sedan", "hatchback"));
-		ArrayList<String> carColor = new ArrayList<String>(Arrays.asList("Red", "Blue", "Green", "Yellow"));
-		ArrayList<String> noOfGears = new ArrayList<String>(Arrays.asList("4", "5", "6"));
-
-		Specs.put("carType", carType);
-		Specs.put("carColor", carColor);
-		Specs.put("noOfGears", noOfGears);
-
-		return Specs;
-
+		carSpec = specCheck.getcarType();
+		return carSpec;
 	}
 
-	public boolean getorder(String carType, String carColor, int noOfGears) {
-		Factory factObj = new Factory();
-		car = factObj.manufacture(carType, carColor, noOfGears);
-		if (car != null) {
-			return true;
+	public boolean getorder(String carType, String carColor, String noOfGears) {
+		int flag = 0;
+		for (ArrayList<String> i : carSpec.values()) {
+			if ((i.contains(carType)) || (i.contains(carColor)) || (i.contains(noOfGears))) {
+				flag = 1;
+			} else {
+				flag = 0;
+				break;
+			}
 		}
-		return false;
+		if (flag == 1) {
+
+			Factory factObj = new Factory();
+			car = factObj.manufacture(carType, carColor, noOfGears);
+			if (car != null) {
+				return true;
+			}
+			return false;
+		} else {
+			return false;
+		}
 	}
 
 	public Car getShipment() {

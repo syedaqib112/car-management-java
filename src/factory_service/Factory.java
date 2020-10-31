@@ -3,7 +3,7 @@ package factory_service;
 import car.Car;
 
 public class Factory {
-	public Car manufacture(String carType, String carColor, int noOfGears) {
+	public Car manufacture(String carType, String carColor, String noOfGears) {
 		Car carObj = new Car();
 		carObj.setCarType(carType);
 		carObj.setCarColor(carColor);

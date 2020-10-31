@@ -3,13 +3,13 @@ package car;
 public class Car {
 	private String carType;
 	private String carColor;
-	private Integer noOfGears;
+	private String noOfGears;
 
 	public Car() {
 
 	}
 
-	public Car(String carType, String carColor, Integer noOfGears) {
+	public Car(String carType, String carColor, String noOfGears) {
 		this.carType = carType;
 		this.carColor = carColor;
 		this.noOfGears = noOfGears;
@@ -31,11 +31,11 @@ public class Car {
 		this.carColor = carColor;
 	}
 
-	public Integer getNoOfGears() {
+	public String getNoOfGears() {
 		return noOfGears;
 	}
 
-	public void setNoOfGears(Integer noOfGears) {
+	public void setNoOfGears(String noOfGears) {
 		this.noOfGears = noOfGears;
 	}
 
